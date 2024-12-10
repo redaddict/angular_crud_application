@@ -1,0 +1,70 @@
+<div class="container" style="width: 100%; padding: 2rem;">
+    <div class="row justify-content-center align-items-center">
+
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <!-- Contact Us Form -->
+            <div class="p-4"
+                style="border: 1px solid #ddd; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background-color:#ffffff5e;">
+                <div *ngIf="isTrue" class="text-center mb-2 mt-2 "
+                    style="background-color: #00d21e45; border: 1px solid green; border-radius: 8px; ">
+                    <p class="mt-2"><b>Thank You For Sharing FeedBack.</b></p>
+                </div>
+                <h2 class="text-center font-weight-bold mb-4"
+                    style="font-family: 'Nikkei Journal', sans-serif; color: #333;">Contact Us</h2>
+                
+                <!-- Contact Form -->
+                <form [formGroup]="contactForm" (ngSubmit)="onContact()">
+                    <!-- Name Field -->
+                    <div class="form-group">
+                        <label for="name" style="font-weight: bold;">Full Name</label>
+                        <input type="text" class="form-control" formControlName="name"
+                            placeholder="Enter your full name" required>
+                        <div *ngIf="f.name?.errors && f.name?.touched" class="text-danger" style="font-size: 0.9rem;">
+                            <div *ngIf="f.name.errors?.['required']">*FullName is Required</div>
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email" style="font-weight: bold;">Email</label>
+                        <input type="email" class="form-control" formControlName="email" placeholder="Enter your email"
+                            required>
+                        <div *ngIf="f.email?.errors && f.email?.touched" class="text-danger" style="font-size: 0.9rem;">
+                            <div *ngIf="f.email.errors?.['required']">*email is Required</div>
+                            <div *ngIf="f.email.errors?.['email']">*email is invalid</div>
+                        </div>
+                    </div>
+
+                    <!-- Subject Field -->
+                    <div class="form-group">
+                        <label for="subject" style="font-weight: bold;">Subject</label>
+                        <input type="text" class="form-control" formControlName="subject" placeholder="Enter subject"
+                            required>
+                        <div *ngIf="f.subject?.errors && f.subject?.touched" class="text-danger"
+                            style="font-size: 0.9rem;">
+                            <div *ngIf="f.subject.errors?.['required']">*subject is Required</div>
+                        </div>
+                    </div>
+
+                    <!-- Comments Textarea -->
+                    <div class="form-group">
+                        <label for="comments" style="font-weight: bold;">Comments</label>
+                        <textarea class="form-control" formControlName="comments" rows="5"
+                            placeholder="Enter your message here" required></textarea>
+                        <div *ngIf="f.comments?.errors && f.comments?.touched" class="text-danger"
+                            style="font-size: 0.9rem;">
+                            <div *ngIf="f.comments.errors?.['required']">*comments is Required</div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark mt-5"
+                            style="font-weight: bold; padding: 10px 20px; border-radius: 5px;">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

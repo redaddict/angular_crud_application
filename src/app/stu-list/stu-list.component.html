@@ -1,0 +1,58 @@
+<div class="container mt-5">
+
+
+    <!-- Error Msg Display -->
+    <span style="font-size: 1.2rem;color:red;">{{errormsg}}</span>
+
+
+
+    <!-- Message for No Data -->
+    <div class="alert alert-info text-center" *ngIf="data.length < 0">
+        No data found. Please add students!
+    </div>
+
+
+    <!-- emp Table -->
+    <div class="table-responsive">
+        <h2 class="text-center mb-4" style="font-family: Georgia, serif; font-weight:bold">Current Employees List</h2>
+
+
+        <table class="table table-bordered text-center" style="border-color: #ddd;">
+            <thead class="table-dark ">
+                <tr>
+                    <!-- pipe -->
+                    <th scope="col"> {{ 'Name' | uppercase }}</th>
+                    <th scope="col">{{'Email Id' | uppercase }} </th>
+                    <th scope="col">{{'Img' | uppercase}} </th>
+                    <th scope="col">{{'Actions' | uppercase}} </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- async pipes -->
+                <tr *ngFor="let dt of data | async ">
+                    <!-- Attribute/properties Directives -->
+                    <td [ngStyle]="(dt.id%2==0)? test2 : test1">{{ dt.name }}</td>
+                    <td [ngStyle]="(dt.id%2==0)? test2 : test1">{{ dt.email | lowercase}}</td>
+                    <td [ngStyle]="(dt.id%2==0)? test2 : test1"><img [src]="dt.images" alt=""></td>
+
+                    <td [ngStyle]="(dt.id%2==0)? test2 : test1">
+                        <button class="btn btn-sm btn-outline-primary me-2" type="button" (click)="onUpdate(dt)">
+                            <i class="bi bi-pencil"></i> Update
+                        </button>
+
+                        <button class="btn btn-sm btn-outline-danger" type="button" (click)="onDelete(dt.id)">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-end mt-3 mb-5">
+            <button class="btn text-white" style="background-color: #40b84c;" type="button" (click)="onClick()">
+                <b>X-Emp List</b>
+            </button>
+        </div>
+    </div>
+
+</div>

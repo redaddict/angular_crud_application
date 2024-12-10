@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "id": "82c2",
+      "name": "Dipa bach",
+      "email": "dipa@gmai.com",
+      "images": "assets/images/med.jpg"
+    },
+    {
+      "id": "c3a5",
+      "name": "Mina K",
+      "email": "mina@gm.in",
+      "images": "assets/images/med2.jpg"
+
+    }
+  ]
+}

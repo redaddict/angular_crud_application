@@ -1,0 +1,49 @@
+<div class="container mt-5">
+
+<!-- Message for No Data -->
+<!-- <div class="alert alert-info text-center" *ngIf="userdata.length < 0">
+    No data found. Please add students!
+</div> -->
+
+<!-- emp Table -->
+<div class="table-responsive">
+<h2 class="text-center mb-4" style="font-family: Georgia, serif; font-weight:bold">X Employees List</h2>
+
+
+    <table class="table table-bordered text-center"  style="border-color: #ddd;">
+        <thead class="table-dark " >
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Profile</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dt of userdata " >
+                <!-- Attribute/properties Directives  & pipes cames form custom pipe -->
+                 <!-- using custom pipe add Er. at starting name -->
+
+                 <!-- using att directives write business logic and apply the colours base on logic -->
+                <td [ngStyle]="(dt.id == 5)? test1 : test2">{{ dt.first_name +' '+ dt.last_name | pipes}}</td>
+                <td [ngStyle]="(dt.id == 5)? test1 : test2">{{ dt.email}}</td>
+                <td [ngStyle]="(dt.id == 5)? test1 : test2">
+                    <!-- appCustDirc came from custom Directives -->
+                     <!-- using custom directives apply css - i.e box-shodow -->
+                        <img [src]="dt.avatar" alt="" appCustDirc>
+                
+                   </td>
+               
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-start mt-3 mb-5">
+        <button 
+            class="btn text-white" style="background-color: #40b84c;" type="button" (click)="onBack()">
+            Current-Emp
+        </button>
+    </div>
+</div>
+
+</div>

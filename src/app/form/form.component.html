@@ -1,0 +1,86 @@
+<div class="container" style="margin-top: 50px; max-width: 600px; padding: 20px;  border-radius: 15px; ">
+    <div *ngIf="isTrue" class="text-center mt-5 mb-5"
+        style="background-color: #00d21e45; border: 1px solid green; border-radius: 8px;">
+        <p class="mt-2"><b>Form Submit Successfully.</b></p>
+    </div>
+    <div class="inner-div">
+
+        <!-- template form -->
+        <div class="form">
+
+            <h2 class="text-center " style="font-family: 'Arial', sans-serif; font-weight: bold;"><u> Add Employee</u>
+            </h2>
+
+
+            <form #stuForm="ngForm" (ngSubmit)=" onSubmit(stuForm)" class="mt-5">
+
+
+                <div class="user-box">
+                    <label class="" style="font-size: 1rem; font-weight: bold;">Full Name</label>
+                    <input type="text" class="input" name="name" #name="ngModel" ngModel required
+                        placeholder="enter your name" [ngClass]="{'is-invalid':name.touched && name.invalid}">
+
+                    <div *ngIf="name.touched && name.invalid" class="text-danger" style="font-size: 0.9rem;">
+                        *Name is required
+                    </div>
+                </div>
+
+                <div class="user-box" style="margin-bottom: 20px;">
+                    <label class="" style="font-size: 1rem; font-weight: bold;">Email</label>
+                    <input type="email" class=" input" name="email" #email="ngModel" ngModel required
+                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="enter your email id"
+                        [ngClass]="{'is-invalid':email.touched && email.invalid}">
+                    <div *ngIf="email.touched && email.invalid" class="validation text-danger"
+                        style="font-size: 0.9rem;">
+                        <div *ngIf="email.errors?.['required']">
+                            *Email is required
+                        </div>
+                        <div *ngIf="email.errors?.['pattern']">
+                            *Invalid email format
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-info mt-4" type="submit"
+                        style="background-color: #40b84c; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="contianer" style="width: 100%; padding: 1rem;">
+    <div class="inner-div2 mt-5 text-center">
+        <div class="inner-div1">
+            <!-- Heading -->
+            <h1 style="font-size: 1.5rem; font-family: fantasy;">They saved. So can you.</h1>
+
+            <!-- Description -->
+            <div class="">
+                <p style="color: #000000; font-size: 0.9rem; font-family: system-ui;">
+                    Manage all your employee details in one centralized system. From hiring to retiring, keep track
+                    of
+                    personal information, job details, and performance metrics seamlessly.
+                </p>
+            </div>
+
+            <!-- Scrolling Logo -->
+            <div style="overflow: hidden; width: 100%;">
+                <marquee behavior="scroll" direction="left" scrollamount="10" style="width: 90%; ">
+
+                    <img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/2023/2023-11/angular-logo-1200-303.png?sfvrsn=d8bbe35c_3"
+                        alt="Angular Logo" style="height: 25px; width: auto; margin: 0 15px;">
+                    <!-- <img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/2023/2023-11/angular-logo-1200-303.png?sfvrsn=d8bbe35c_3"
+                            alt="Angular Logo" style="height: 25px; width: auto; margin: 0 15px;">
+                        <img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/2023/2023-11/angular-logo-1200-303.png?sfvrsn=d8bbe35c_3"
+                            alt="Angular Logo" style="height: 25px; width: auto; margin: 0 15px;"> -->
+                </marquee>
+            </div>
+        </div>
+    </div>
+
+
+</div>
