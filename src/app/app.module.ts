@@ -15,7 +15,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
 import { XEmpComponent } from './x-emp/x-emp.component';
 import { PipesPipe } from './pipes.pipe';
-import { CustDircDirective } from './cust-dirc.directive'
+import { CustDircDirective } from './cust-dirc.directive';
+import { GitdemoComponent } from './gitdemo/gitdemo.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CustDircDirective } from './cust-dirc.directive'
     ContactComponent,
     XEmpComponent,
     PipesPipe,
-    CustDircDirective
+    CustDircDirective,
+    GitdemoComponent
   ],
   imports: [
     BrowserModule,
